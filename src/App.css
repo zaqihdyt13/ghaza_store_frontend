@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Coral+Pixels&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+.coral-pixels-regular {
+  font-family: "Coral Pixels", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.barriecito-regular {
+  font-family: "Barriecito", system-ui;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #0f766e;
+  /* misal warna teal */
+}
+
+/* ADMIN STYLE */
+.font-family-karla {
+  font-family: 'Karla', sans-serif;
+}
+
+/* Custom colors as class overrides
+.bg-sidebar {
+  background-color: #3d68ff;
+} */
+
+/* .cta-btn {
+  color: #3d68ff;
+}
+
+.upgrade-btn {
+  background-color: #1947ee;
+}
+
+.upgrade-btn:hover {
+  background-color: #0038fd;
+}
+
+.active-nav-link {
+  background-color: #1947ee;
+}
+
+.nav-item:hover {
+  background-color: #1947ee;
+}
+
+.account-link:hover {
+  background-color: #3d68ff;
+} */
