@@ -51,11 +51,131 @@ const PopularProducts = () => {
         setProducts(response.data);
       } catch (error) {
         console.error("Gagal mengambil produk populer:", error);
+        const dummyProducts = [
+          {
+            id: 1,
+            name: "Converse Tee Kaos Lengan Pendek",
+            price: 40000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751298193/ghaza-products/xsxgrxjqidbiwxztzk9q.jpg",
+            description: "Kaos Baju CONVERSE Tee Navy White Original",
+            average_rating: 4.7,
+            total_reviews: 6,
+          },
+          {
+            id: 2,
+            name: "GAP Zip Up Hoodie",
+            price: 170000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751298424/ghaza-products/acrbekhcpmnm6qtldhzw.jpg",
+            description: "GAP Logo Sherpa-Lined Zip Up Hoodie",
+            average_rating: 4.5,
+            total_reviews: 6,
+          },
+          {
+            id: 3,
+            name: "UNIQLO Kemeja Putih Panjang Pria",
+            price: 120000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751299377/ghaza-products/axpfjbtpghllgcl68h8q.jpg",
+            description: "Kemeja Putih UNIQLO Kemeja Lengan Panjang",
+            average_rating: 3.5,
+            total_reviews: 6,
+          },
+          {
+            id: 4,
+            name: "Wrangler Celana Panjang Denim",
+            price: 240000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751299793/ghaza-products/yznmobmfs7s4klsonlg0.jpg",
+            description: "Celana wrangler original jeans panjang",
+            average_rating: 4.7,
+            total_reviews: 6,
+          },
+          {
+            id: 5,
+            name: "Nike Sport Celana Pendek",
+            price: 40000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751300161/ghaza-products/ocgaz3cmvnwxjgegfgtf.jpg",
+            description: "Celana Pendek NIKE Sport Polos Baby Terry",
+            average_rating: 4.5,
+            total_reviews: 6,
+          },
+          {
+            id: 6,
+            name: "Crocodile Kemeja Lengan Pendek",
+            price: 140000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751300414/ghaza-products/qv4x7o1g8e6bzmiedlhh.jpg",
+            description: "Kemeja pria Crocodile lengan pendek bahan adem",
+            average_rating: 3.3,
+            total_reviews: 6,
+          },
+          {
+            id: 7,
+            name: "Nike Hoodie Hitam",
+            price: 220000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751300747/ghaza-products/uwvviul8ezj5bsah0j5t.png",
+            description: "Nike Hoodied Black Small Logo Swoosh",
+            average_rating: 4.7,
+            total_reviews: 6,
+          },
+          {
+            id: 8,
+            name: "Adidas Kaos Pria Katun Combed Lengan Pendek",
+            price: 35000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751301097/ghaza-products/bmgupzojvvthdjixwpti.png",
+            description: "Kaos lengan pendek cotton combed",
+            average_rating: 4.7143,
+            total_reviews: 7,
+          },
+          {
+            id: 9,
+            name: "Adidas Celana Training Pria",
+            price: 75000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751328561/ghaza-products/rsj27occ88pon3bfnyrf.jpg",
+            description: "Celana Training Pria Adidas Sereno 3-Stripes",
+            average_rating: 3.8,
+            total_reviews: 6,
+          },
+          {
+            id: 10,
+            name: "H&M New York Hoodie Wanita Pink",
+            price: 180000,
+            image_url:
+              "https://res.cloudinary.com/dc5ajmn6z/image/upload/v1751328993/ghaza-products/sjbndlombsimamnpth7g.jpg",
+            description: "Hoodie H&M Newyork Pink",
+            average_rating: 4.7,
+            total_reviews: 6,
+          },
+        ];
+
+        setProducts(dummyProducts);
       }
     };
 
     fetchPopularProducts();
   }, []);
+
+  // useEffect(() => {
+  //   const fetchPopularProducts = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         // "http://localhost:5000/api/products/popular"
+  //         `${import.meta.env.VITE_API_BASE_URL}/api/products/popular`
+  //       );
+  //       setProducts(response.data);
+  //     } catch (error) {
+  //       console.error("Gagal mengambil produk populer:", error);
+  //     }
+  //   };
+
+  //   fetchPopularProducts();
+  // }, []);
 
   return (
     <div className="relative w-full px-4 lg:px-8 py-4">

@@ -32,6 +32,52 @@ const ProductCategories = () => {
         setCategories(response.data);
       } catch (error) {
         console.error("Gagal mengambil kategori:", error);
+        const dummyProducts = [
+          {
+            id: 1,
+            name: "Pria",
+            image_url:
+              "https://images.unsplash.com/photo-1559697242-cacab5d5b62c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            id: 2,
+            name: "Wanita",
+            image_url:
+              "https://images.unsplash.com/photo-1572251328767-e59f06f13ba1?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            id: 3,
+            name: "Kaos",
+            image_url:
+              "https://images.unsplash.com/photo-1523381294911-8d3cead13475?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            id: 4,
+            name: "Kemeja",
+            image_url:
+              "https://images.unsplash.com/photo-1549037173-e3b717902c57?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            id: 5,
+            name: "Celana Panjang",
+            image_url:
+              "https://images.unsplash.com/photo-1551619873-fcaaf90f88b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            id: 6,
+            name: "Celana Pendek",
+            image_url:
+              "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-bdb4-622f-99d0-d18b2b4e1032/raw?se=2025-07-08T02%3A33%3A17Z&sp=r&sv=2024-08-04&sr=b&scid=85f26236-2177-5956-bb3c-7e26e294da2a&skoid=b0fd38cc-3d33-418f-920e-4798de4acdd1&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-07T22%3A27%3A15Z&ske=2025-07-08T22%3A27%3A15Z&sks=b&skv=2024-08-04&sig=waHp1XW8Nevoh7QN3rqaCbKDT9%2BR0MH1T/4KBZgL6jw%3D",
+          },
+          {
+            id: 7,
+            name: "Jaket & Hoodie",
+            image_url:
+              "https://images.unsplash.com/photo-1699275303892-660bd1c8483a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+        ];
+
+        setCategories(dummyProducts);
       } finally {
         setLoading(false);
       }
