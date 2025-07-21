@@ -126,7 +126,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        navigateFallback: "/offline.html",
+        navigateFallback: "/index.html", // ✅ PENTING untuk SPA seperti React
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.destination === "document",
@@ -153,8 +153,8 @@ export default defineConfig({
 
   server: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
+      "/api": {
+        target: "http://localhost:5000",
         // target: 'https://conducted-dover-nextel-monitoring.trycloudflare.com',
         changeOrigin: true,
         secure: false,
@@ -171,14 +171,14 @@ export default defineConfig({
   // },
 
   preview: {
-    host: true,       // agar listen di 0.0.0.0
-    port: 4173,       // atau port lain yang kamu mau
+    host: true, // agar listen di 0.0.0.0
+    port: 4173, // atau port lain yang kamu mau
     // allowedHosts jika perlu (untuk keamanan)
     allowedHosts: [
-      '.trycloudflare.com',
-      'localhost',
-      '192.168.1.2',
-      '.ngrok-free.app'
+      ".trycloudflare.com",
+      "localhost",
+      "192.168.1.2",
+      ".ngrok-free.app",
     ],
   },
 });
