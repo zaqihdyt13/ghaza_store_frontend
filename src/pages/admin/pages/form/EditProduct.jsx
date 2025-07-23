@@ -12,7 +12,6 @@ const EditProduct = () => {
     price: "",
     image_url: "",
     description: "",
-    // rating: "",
     sold_count: "",
     categories: [],
     colors: [],

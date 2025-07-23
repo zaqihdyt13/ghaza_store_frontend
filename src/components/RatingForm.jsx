@@ -18,7 +18,8 @@ const RatingForm = ({ productId, userId, onSuccess }) => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/ratings", {
+      // await axios.post("http://localhost:5000/api/ratings", {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/ratings`, {
         product_id: productId,
         user_id: userId,
         rating,

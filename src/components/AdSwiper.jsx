@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-// import swiper1 from "../assets/img/swiper1.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -33,12 +32,6 @@ const AdSwiper = () => {
       >
         {ads.map((ad) => (
           <SwiperSlide key={ad.id}>
-            {/* <img
-              src={ad.image_url}
-              alt={ad.title}
-              className="w-full h-full object-cover"
-              // className="w-full h-48 sm:h-48 md:h-56 lg:h-64 xl:h-72 object-cover"
-            /> */}
             <div className="w-full lg:aspect-[16/4]">
               <img
                 src={ad.image_url}

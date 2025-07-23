@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { FiSearch, FiMenu, FiX } from "react-icons/fi";
-// import { PiBellSimple } from "react-icons/pi";
 import { FaOpencart } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import NotificationBell from "./NotificationBell";

@@ -106,7 +106,6 @@ const LoginPage = () => {
                 </label>
                 <input
                   id="password"
-                  // type="password"
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
