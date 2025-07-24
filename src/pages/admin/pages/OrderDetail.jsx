@@ -10,7 +10,7 @@ const OrderDetail = () => {
   useEffect(() => {
     const fetchOrderDetail = async () => {
       try {
-        const res = await axios.get(`/api/order/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/order/${id}`);
         setOrder(res.data.order);
         setItems(res.data.items);
       } catch (err) {
@@ -23,7 +23,7 @@ const OrderDetail = () => {
 
   const handleUpdateStatus = async () => {
     try {
-      await axios.put(`/api/order/${order.id}/status`, { status: "shipped" });
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/order/${order.id}/status`, { status: "shipped" });
       setOrder((prev) => ({ ...prev, status: "shipped" }));
       alert("Status berhasil diperbarui ke 'shipped'");
     } catch (err) {
