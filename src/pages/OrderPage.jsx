@@ -128,7 +128,11 @@ const OrderPage = () => {
       }
 
       window.snap.pay(snapToken, {
-        onSuccess: () => alert("Pembayaran berhasil!"),
+        onSuccess: function (result) {
+          console.log("Payment success:", result);
+          // Langsung redirect tanpa menunggu
+          window.location.href = "/myorder?payment=success";
+        },
         onPending: () => alert("Pembayaran pending."),
         onError: (result) =>
           alert("Pembayaran gagal: " + JSON.stringify(result)),
@@ -163,7 +167,8 @@ const OrderPage = () => {
                   <li key={item.cart_id} className="py-2">
                     <div className="flex flex-col space-y-2">
                       <span>
-                        {item.name} - {item.quantity} x Rp {item.price.toLocaleString()}
+                        {item.name} - {item.quantity} x Rp{" "}
+                        {item.price.toLocaleString()}
                       </span>
                       <div className="flex gap-4">
                         <select
@@ -219,7 +224,8 @@ const OrderPage = () => {
             {/* <strong>Subtotal:</strong> Rp {subtotal.toFixed(2)} */}
           </p>
           <p>
-            <strong>Total:</strong> Rp {(subtotal + shippingCost).toLocaleString()}
+            <strong>Total:</strong> Rp{" "}
+            {(subtotal + shippingCost).toLocaleString()}
             {/* <strong>Total:</strong> ${(subtotal + shippingCost).toFixed(2)} */}
           </p>
         </div>
