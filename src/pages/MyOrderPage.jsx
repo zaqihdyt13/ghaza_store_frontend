@@ -12,14 +12,7 @@ import {
   X,
   DollarSign,
 } from "lucide-react";
-// Header component placeholder
-const Header = () => (
-  <header className="bg-white shadow-sm border-b">
-    <div className="max-w-7xl mx-auto px-4 py-4">
-      <h1 className="text-xl font-semibold">My Store</h1>
-    </div>
-  </header>
-);
+import Header from "../components/Header";
 
 const MyOrderPage = () => {
   const [activeTab, setActiveTab] = useState("pending");
@@ -97,12 +90,12 @@ const MyOrderPage = () => {
       // Debug: log URL yang akan dipanggil
       console.log(
         "Calling API:",
-        `/api/order/payment/${order.midtrans_order_id}`
+        `${import.meta.env.VITE_API_BASE_URL}/api/order/payment/${order.midtrans_order_id}`
       );
       console.log("Order data:", order);
 
       const response = await fetch(
-        `/api/order/payment/${order.midtrans_order_id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/order/payment/${order.midtrans_order_id}`,
         {
           method: "GET",
           headers: {
@@ -191,7 +184,7 @@ const MyOrderPage = () => {
         return;
       }
 
-      const response = await fetch("/api/order/orders", {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/order/orders`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -216,7 +209,7 @@ const MyOrderPage = () => {
   const fetchOrderDetails = async (orderId) => {
     try {
       const token = getAuthToken();
-      const response = await fetch(`/api/order/${orderId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/order/${orderId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

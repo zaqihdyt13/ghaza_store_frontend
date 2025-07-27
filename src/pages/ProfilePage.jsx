@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [user, setUser] = useState({ username: "", email: "" });
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const navigate = useNavigate()
 
   const token = localStorage.getItem("token");
 
@@ -39,7 +41,7 @@ const Profile = () => {
 
     axios
       .put(
-        "http://localhost:5000/api/user/profile/update",
+        `${import.meta.env.VITE_API_BASE_URL}/api/user/profile/update`,
         { username: user.username, email: user.email },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -74,6 +76,7 @@ const Profile = () => {
                 <span className="font-semibold">Email:</span> {user.email}
               </p>
             </div>
+            <button onClick={() => navigate("/myorder")} className="bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded">Cek Pesanan Anda</button>
           </div>
 
           {/* Bagian kanan (atau bawah di HP): Form update */}
