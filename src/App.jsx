@@ -27,6 +27,7 @@ import EditSize from "./pages/admin/pages/form/EditSize";
 import Orders from "./pages/admin/pages/Orders";
 import OrderDetail from "./pages/admin/pages/OrderDetail";
 import NotificationDetail from "./pages/NotificationDetail";
+import MyOrderPage from "./pages/MyOrderPage";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/shopping-cart" element={<ShoppingCart />} />
         <Route path="/order" element={<OrderPage />} />
         <Route path="/notifications/:id" element={<NotificationDetail />} />
+        <Route path="/myorder" element={<MyOrderPage />} />
 
         {/* Admin */}
         <Route
