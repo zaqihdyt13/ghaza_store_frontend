@@ -34,11 +34,11 @@ const Dashboard = () => {
       try {
         const [usersRes, productsRes, categoriesRes, colorsRes, sizesRes] =
           await Promise.all([
-            fetch(`${apiUrl}/users`).then((res) => res.json()),
-            fetch(`${apiUrl}/products`).then((res) => res.json()),
-            fetch(`${apiUrl}/categories`).then((res) => res.json()),
-            fetch(`${apiUrl}/colors`).then((res) => res.json()),
-            fetch(`${apiUrl}/sizes`).then((res) => res.json()),
+            fetch(`${apiUrl}/api/user/users`).then((res) => res.json()),
+            fetch(`${apiUrl}/api/products`).then((res) => res.json()),
+            fetch(`${apiUrl}/api/categories`).then((res) => res.json()),
+            fetch(`${apiUrl}/api/colors`).then((res) => res.json()),
+            fetch(`${apiUrl}/api/sizes`).then((res) => res.json()),
           ]);
 
         setCounts({
