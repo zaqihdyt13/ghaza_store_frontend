@@ -35,7 +35,7 @@ const NotificationDetail = () => {
       if (!orderId) return;
 
       await axios.put(
-        `/api/order/${orderId}/status`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/order/${orderId}/status`,
         { status: "delivered" },
         {
           headers: {
