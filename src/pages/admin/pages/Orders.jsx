@@ -17,7 +17,7 @@ const Orders = () => {
         <main className="w-full overflow-x-hidden border-t-2 border-teal-400 border-2 flex flex-col">
           <main className="w-full flex-grow p-6">
             <h1 className="text-3xl text-gray-900 pb-6">Kelola Pesanan</h1>
-            <Tables apiUrl={apiUrl} editPath="/admin/order" />
+            <Tables apiUrl={apiUrl} editPath="/admin/order" hideDelete />
           </main>
           <Footer />
         </main>

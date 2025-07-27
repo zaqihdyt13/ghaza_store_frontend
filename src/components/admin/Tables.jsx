@@ -34,7 +34,7 @@ const formatHeader = (key) => {
     );
 };
 
-const Tables = ({ apiUrl, editPath }) => {
+const Tables = ({ apiUrl, editPath, hideDelete = false }) => {
   const [data, setData] = useState([]);
   const [columns, setColumns] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -210,12 +210,14 @@ const Tables = ({ apiUrl, editPath }) => {
                     >
                       <BiEdit className="text-white w-8 text-xl" />
                     </button>
-                    <button
-                      onClick={() => handleDelete(item.id)}
-                      className="bg-red-600 p-1 rounded-xl cursor-pointer hover:bg-red-400 transition-all mr-2"
-                    >
-                      <MdDeleteOutline className="text-white w-8 text-xl" />
-                    </button>
+                    {!hideDelete && (
+                      <button
+                        onClick={() => handleDelete(item.id)}
+                        className="bg-red-600 p-1 rounded-xl cursor-pointer hover:bg-red-400 transition-all mr-2"
+                      >
+                        <MdDeleteOutline className="text-white w-8 text-xl" />
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))
@@ -258,6 +260,7 @@ const Tables = ({ apiUrl, editPath }) => {
 Tables.propTypes = {
   apiUrl: PropTypes.string.isRequired,
   editPath: PropTypes.string.isRequired,
+  hideDelete: PropTypes.bool,
 };
 
 export default Tables;
