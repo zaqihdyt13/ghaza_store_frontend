@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Package,
   Clock,
@@ -181,7 +181,7 @@ const MyOrderPage = () => {
   };
 
   // Fetch orders dari API
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     try {
       setLoading(true);
       const token = getAuthToken();
@@ -210,7 +210,7 @@ const MyOrderPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Fetch order details
   const fetchOrderDetails = async (orderId) => {
@@ -251,7 +251,7 @@ const MyOrderPage = () => {
 
   useEffect(() => {
     fetchOrders();
-  }, []);
+  }, [fetchOrders]);
 
   // Filter orders by status
   const filteredOrders = orders.filter((order) => order.status === activeTab);
