@@ -17,7 +17,7 @@ const NotificationBell = () => {
 
     const fetchNotifications = async () => {
       try {
-        const res = await axios.get(`/api/notifications/${userId}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/notifications/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -35,13 +35,13 @@ const NotificationBell = () => {
 
   const markAsRead = async (id) => {
     try {
-      await axios.put(`/api/notifications/read/${id}`, null, {
+      await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/notifications/read/${id}`, null, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       // Refresh notifikasi setelah ditandai sebagai dibaca
-      const res = await axios.get(`/api/notifications/${userId}`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/notifications/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -13,7 +13,7 @@ const NotificationDetail = () => {
   useEffect(() => {
     const fetchDetail = async () => {
       try {
-        const res = await axios.get(`/api/notifications/detail/${id}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/notifications/detail/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
