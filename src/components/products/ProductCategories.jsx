@@ -17,7 +17,7 @@ const ProductCategories = () => {
     "Celana Panjang":
       "https://images.unsplash.com/photo-1551619873-fcaaf90f88b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "Celana Pendek":
-      "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-bdb4-622f-99d0-d18b2b4e1032/raw?se=2025-07-08T02%3A33%3A17Z&sp=r&sv=2024-08-04&sr=b&scid=85f26236-2177-5956-bb3c-7e26e294da2a&skoid=b0fd38cc-3d33-418f-920e-4798de4acdd1&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-07T22%3A27%3A15Z&ske=2025-07-08T22%3A27%3A15Z&sks=b&skv=2024-08-04&sig=waHp1XW8Nevoh7QN3rqaCbKDT9%2BR0MH1T/4KBZgL6jw%3D",
+      "https://res-console.cloudinary.com/dc5ajmn6z/thumbnails/v1/image/upload/v1753582365/Q2hhdEdQVF9JbWFnZV9KdWxfMjdfMjAyNV8wOV8xMl8xOF9BTV9ranJlems=/drilldown",
     "Jaket & Hoodie":
       "https://images.unsplash.com/photo-1699275303892-660bd1c8483a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   };
