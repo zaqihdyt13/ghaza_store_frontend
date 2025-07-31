@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const CreateAd = () => {
   const navigate = useNavigate();
@@ -18,21 +21,22 @@ const CreateAd = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!form.title.trim()) {
+      return toast.error("Nama warna tidak boleh kosong");
+    }
+
     const newAd = {
       title: form.title,
       image_url: form.image_url,
     };
 
     try {
-      await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/api/ads`,
-        newAd
-      );
-      alert("Ad created successfully!");
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/ads`, newAd);
+      toast.success("Ad created successfully!");
       navigate("/admin/ads");
     } catch (err) {
       console.error(err);
-      alert("Failed to create ad.");
+      toast.error("Failed to create ad.");
     }
   };
 
@@ -68,6 +72,7 @@ const CreateAd = () => {
           Buat Iklan
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };

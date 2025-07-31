@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const CreateColor = () => {
   const navigate = useNavigate();
@@ -14,8 +17,13 @@ const CreateColor = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validasi input kosong
+    if (!form.color_name.trim()) {
+      return toast.error("Nama warna tidak boleh kosong");
+    }
 
     const newColor = {
       color_name: form.color_name,
@@ -26,11 +34,11 @@ const CreateColor = () => {
         `${import.meta.env.VITE_API_BASE_URL}/api/colors`,
         newColor
       );
-      alert("Color created successfully!");
+      toast.success("Warna berhasil dibuat!");
       navigate("/admin/attributes");
     } catch (err) {
       console.error(err);
-      alert("Failed to create category.");
+      toast.error("Gagal membuat warna.");
     }
   };
 
@@ -66,6 +74,7 @@ const CreateColor = () => {
           Buat Warna
         </button>
       </form>
+      <ToastContainer/>
     </div>
   );
 };

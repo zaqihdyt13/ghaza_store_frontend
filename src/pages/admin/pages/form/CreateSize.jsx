@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const CreateSize = () => {
   const navigate = useNavigate();
@@ -17,6 +20,10 @@ const CreateSize = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+     if (!form.size_name.trim()) {
+      return toast.error("Nama ukuran tidak boleh kosong");
+    }
+
     const newSize = {
       size_name: form.size_name,
     };
@@ -26,11 +33,11 @@ const CreateSize = () => {
         `${import.meta.env.VITE_API_BASE_URL}/api/sizes`,
         newSize
       );
-      alert("Size created successfully!");
+      toast.success("Size created successfully!");
       navigate("/admin/attributes");
     } catch (err) {
       console.error(err);
-      alert("Failed to create category.");
+      toast.error("Failed to create size.");
     }
   };
 
@@ -66,6 +73,7 @@ const CreateSize = () => {
           Buat Ukuran
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };

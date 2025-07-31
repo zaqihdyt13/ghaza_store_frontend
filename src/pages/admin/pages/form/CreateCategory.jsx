@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const CreateCategory = () => {
   const navigate = useNavigate();
@@ -17,6 +20,10 @@ const CreateCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!form.name.trim()) {
+      return toast.error("Nama kategori tidak boleh kosong");
+    }
+
     const newCategory = {
       name: form.name,
     };
@@ -26,11 +33,11 @@ const CreateCategory = () => {
         `${import.meta.env.VITE_API_BASE_URL}/api/categories`,
         newCategory
       );
-      alert("Category created successfully!");
+      toast.success("Category created successfully!");
       navigate("/admin/attributes");
     } catch (err) {
       console.error(err);
-      alert("Failed to create category.");
+      toast.error("Failed to create category.");
     }
   };
 
@@ -66,6 +73,7 @@ const CreateCategory = () => {
           Buat Kategori
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };
