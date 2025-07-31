@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const CreateProduct = () => {
   const navigate = useNavigate();
@@ -62,39 +65,97 @@ const CreateProduct = () => {
     });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData();
+  //   formData.append("name", form.name);
+  //   formData.append("price", form.price);
+  //   formData.append("description", form.description);
+  //   formData.append("sold_count", form.sold_count || 0);
+  //   formData.append("categories", JSON.stringify(form.categories));
+  //   formData.append("colors", JSON.stringify(form.colors));
+  //   formData.append("sizes", JSON.stringify(form.sizes));
+
+  //   if (imageFile) {
+  //     formData.append("image", imageFile);
+  //   }
+
+  //   try {
+  //     await axios.post(
+  //       `${import.meta.env.VITE_API_BASE_URL}/api/products`,
+  //       formData,
+  //       {
+  //         headers: {
+  //           "Content-Type": "multipart/form-data",
+  //         },
+  //       }
+  //     );
+  //     alert("Product created successfully!");
+  //     navigate("/admin/products");
+  //   } catch (err) {
+  //     console.error("Create Product Error:", err.response?.data || err);
+  //     alert("Failed to create product.");
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("name", form.name);
-    formData.append("price", form.price);
-    formData.append("description", form.description);
-    formData.append("sold_count", form.sold_count || 0);
-    formData.append("categories", JSON.stringify(form.categories));
-    formData.append("colors", JSON.stringify(form.colors));
-    formData.append("sizes", JSON.stringify(form.sizes));
+  // Validasi field kosong
+  if (!form.name.trim()) {
+    return toast.error("Nama produk tidak boleh kosong");
+  }
+  if (!form.price || isNaN(form.price)) {
+    return toast.error("Harga produk tidak valid atau kosong");
+  }
+  if (!form.description.trim()) {
+    return toast.error("Deskripsi produk tidak boleh kosong");
+  }
+  if (!form.sold_count || isNaN(form.sold_count)) {
+    return toast.error("Jumlah terjual tidak valid atau kosong");
+  }
+  if (form.categories.length === 0) {
+    return toast.error("Pilih minimal satu kategori");
+  }
+  if (form.colors.length === 0) {
+    return toast.error("Pilih minimal satu warna");
+  }
+  if (form.sizes.length === 0) {
+    return toast.error("Pilih minimal satu ukuran");
+  }
+  if (!imageFile) {
+    return toast.error("Gambar produk wajib diunggah");
+  }
 
-    if (imageFile) {
-      formData.append("image", imageFile);
-    }
+  const formData = new FormData();
+  formData.append("name", form.name);
+  formData.append("price", form.price);
+  formData.append("description", form.description);
+  formData.append("sold_count", form.sold_count || 0);
+  formData.append("categories", JSON.stringify(form.categories));
+  formData.append("colors", JSON.stringify(form.colors));
+  formData.append("sizes", JSON.stringify(form.sizes));
+  formData.append("image", imageFile);
 
-    try {
-      await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/api/products`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      alert("Product created successfully!");
-      navigate("/admin/products");
-    } catch (err) {
-      console.error("Create Product Error:", err.response?.data || err);
-      alert("Failed to create product.");
-    }
-  };
+  try {
+    await axios.post(
+      `${import.meta.env.VITE_API_BASE_URL}/api/products`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    toast.success("Produk berhasil dibuat!");
+    navigate("/admin/products");
+  } catch (err) {
+    console.error("Create Product Error:", err.response?.data || err);
+    toast.error("Gagal membuat produk");
+  }
+};
+
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md mt-10">
@@ -239,6 +300,7 @@ const CreateProduct = () => {
           Buat Produk
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };
